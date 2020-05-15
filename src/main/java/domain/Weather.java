@@ -9,6 +9,8 @@ import org.springframework.web.util.UriComponentsBuilder;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import config.OwmApiConfig;
+
 public class Weather {
 
 	protected String city;
@@ -50,7 +52,7 @@ public class Weather {
 
 	// Call OpenWeatherMap API and init values
 	public void GetWeatherByCity(String city_name) {
-		final String appid = "*************API KEY*****************";
+		final String appid = OwmApiConfig.getApiKey();
 
 		// Create API URI path
 		UriComponentsBuilder uriComponents = UriComponentsBuilder.newInstance().scheme("http")

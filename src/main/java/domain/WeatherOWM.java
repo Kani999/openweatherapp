@@ -7,6 +7,8 @@ import java.io.IOException;
 
 import org.json.JSONException;
 
+import config.OwmApiConfig;
+
 public class WeatherOWM  {
 	private int cityID;
 	private String city;
@@ -83,7 +85,7 @@ public class WeatherOWM  {
 
 	public void GetWeatherByCity(String city_name) {
 		// use openweathermap java api lib
-		final String appid = "*************API KEY*****************";
+		final String appid = OwmApiConfig.getApiKey();
 		OpenWeatherMap wm = new OpenWeatherMap(appid);
 		CurrentWeather cw = null;
 		

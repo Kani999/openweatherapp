@@ -8,9 +8,9 @@ public class Weather {
 	protected Double temperature;
 	protected Integer dt;
 	protected Date updated_at;
-	
+
 	// Test constructor
-	public Weather(){
+	public Weather() {
 		this.city = "Opava";
 		this.temperature = 45.0;
 	}

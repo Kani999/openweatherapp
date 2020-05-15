@@ -3,14 +3,15 @@ package service;
 import org.springframework.stereotype.Service;
 
 import domain.Weather;
+import domain.WeatherOWM;
 
 @Service
 public class WeatherService {
 
-	private Weather weather;
+	private WeatherOWM weather;
 
-	public Weather getWeatherByCity(String city_name) {
-		weather = new Weather();
+	public WeatherOWM getWeatherByCity(String city_name) {
+		weather = new WeatherOWM();
 		weather.GetWeatherByCity(city_name);
 
 		return weather;

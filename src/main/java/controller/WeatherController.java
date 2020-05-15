@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import domain.Weather;
+import domain.WeatherOWM;
 import service.WeatherService;
 
 @Controller
@@ -16,7 +17,7 @@ public class WeatherController {
 
 	@RequestMapping("/weather/city")
 	public void weather(Model model) {
-		Weather weather = weatherService.getWeatherByCity("Opava");
+		WeatherOWM weather = weatherService.getWeatherByCity("Opava");
 		model.addAttribute("weather", weather);
 	}
 }

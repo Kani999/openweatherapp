@@ -56,6 +56,13 @@
 			<version>20160810</version>
 		</dependency>
 
+		<!-- OWM JAPI -->
+		<dependency>
+			<groupId>net.aksingh</groupId>
+			<artifactId>owm-japis</artifactId>
+			<version>2.5.0.3</version>
+		</dependency>
+
 	</dependencies>
 
 	<!-- boilerplate code allowing Maven to generate a .war archive without 

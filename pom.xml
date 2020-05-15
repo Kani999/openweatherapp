@@ -66,7 +66,7 @@
 	</dependencies>
 
 	<!-- boilerplate code allowing Maven to generate a .war archive without 
-		requiring a web.xml file -->
+	requiring a web.xml file -->
 	<build>
 		<finalName>springwebapp</finalName>
 

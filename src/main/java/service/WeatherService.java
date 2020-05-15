@@ -6,19 +6,15 @@ import org.json.JSONException;
 import org.springframework.stereotype.Service;
 
 import domain.AWeather;
-import domain.Weather;
-import domain.WeatherOWM;
+import domain.factory.BaseWeatherFactory;
+import domain.factory.WeatherFactory;
 
 @Service
 public class WeatherService {
-
-	// TODO: Determine which class (Weather, WeatherOWM) to use. Factory?
-
-	private AWeather weather;
+	private BaseWeatherFactory weatherFactory = new WeatherFactory();
 
 	public AWeather getWeatherByCity(String city_name) throws JSONException, IOException {
-		weather = new WeatherOWM(city_name);
-		// weather = new Weather(city_name);
+		AWeather weather = weatherFactory.createWeather("owm", city_name);
 
 		return weather;
 	}

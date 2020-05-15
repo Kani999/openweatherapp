@@ -41,6 +41,9 @@ public abstract class AWeather {
 		this.dt = dt;
 	}
 
+	public AWeather() {
+	}
+
 	// initializer of abstract variables for a Weather instance
 	public abstract void GetTemperatureByCity(String city_name);
 

@@ -11,10 +11,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import config.OwmApiConfig;
 
 public class Weather extends AWeather {
-	// Constructor - initialize variables by city_name
-	public Weather(String city_name) {
-		this.city = city_name;
-		GetTemperatureByCity(city);
+	// Constructor
+	public Weather() {
 	}
 
 	@Override
@@ -24,7 +22,7 @@ public class Weather extends AWeather {
 		// Build openweathermap Uri path
 		UriComponentsBuilder uriComponents = UriComponentsBuilder.newInstance().scheme("http")
 				.host("api.openweathermap.org").path("data/2.5/weather").queryParam("q", city_name)
-				.queryParam("appid", appid);
+				.queryParam("appid", appid).queryParam("units", "imperial");
 
 		final String uri = uriComponents.buildAndExpand().toUri().toString();
 
@@ -35,7 +33,7 @@ public class Weather extends AWeather {
 		// map result to JsonNode
 		ObjectMapper objectMapper = new ObjectMapper();
 		JsonNode jsonNode = null;
-		
+
 		try {
 			jsonNode = objectMapper.readTree(result);
 		} catch (IOException e) {

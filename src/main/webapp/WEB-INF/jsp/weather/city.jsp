@@ -7,6 +7,6 @@
 </head>
 <body>
 	<h1>${weather.city}</h1>
-	<h2>${weather.temperature}</h2>
+	<h2>${weather.temperature}Fahrenheit</h2>
 </body>
 </html>

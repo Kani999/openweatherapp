@@ -74,10 +74,8 @@ public class WeatherOWM extends AWeather {
 		this.iconID = iconID;
 	}
 
-	// Constructor - initialize by city_name
-	public WeatherOWM(String city_name) throws JSONException, IOException {
-		this.city = city_name;
-		GetTemperatureByCity(city_name);
+	// Constructor
+	public WeatherOWM() {
 	}
 
 	@Override

@@ -16,8 +16,7 @@ public class WeatherController {
 
 	@RequestMapping("/weather/city")
 	public void weather(Model model) {
-		// Print weather city - test
-		Weather weather = weatherService.getWeather();
+		Weather weather = weatherService.getWeatherByCity("Opava");
 		model.addAttribute("weather", weather);
 	}
 }

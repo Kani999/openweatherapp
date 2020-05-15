@@ -9,8 +9,9 @@ public class WeatherService {
 
 	private Weather weather;
 
-	public Weather getWeather() {
+	public Weather getWeatherByCity(String city_name) {
 		weather = new Weather();
+		weather.GetWeatherByCity(city_name);
 
 		return weather;
 	}

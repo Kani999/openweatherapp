@@ -9,9 +9,8 @@ import org.json.JSONException;
 
 import config.OwmApiConfig;
 
-public class WeatherOWM  {
+public class WeatherOWM extends AWeather {
 	private int cityID;
-	private String city;
 	private String description;
 	private Double temperature;
 	private String pressure;
@@ -25,14 +24,6 @@ public class WeatherOWM  {
 
 	public void setCityID(int cityID) {
 		this.cityID = cityID;
-	}
-
-	public String getCity() {
-		return city;
-	}
-
-	public void setCity(String city) {
-		this.city= city;
 	}
 
 	public String getDescription() {
@@ -83,12 +74,18 @@ public class WeatherOWM  {
 		this.iconID = iconID;
 	}
 
-	public void GetWeatherByCity(String city_name) {
+	// Constructor - initialize by city_name
+	public WeatherOWM(String city_name) throws JSONException, IOException {
+		this.city = city_name;
+		GetTemperatureByCity(city_name);
+	}
+
+	@Override
+	public void GetTemperatureByCity(String city_name) {
 		// use openweathermap java api lib
 		final String appid = OwmApiConfig.getApiKey();
 		OpenWeatherMap wm = new OpenWeatherMap(appid);
 		CurrentWeather cw = null;
-		
 		try {
 			cw = wm.currentWeatherByCityName(city_name);
 		} catch (JSONException e) {

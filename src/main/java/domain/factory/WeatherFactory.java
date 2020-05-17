@@ -1,5 +1,7 @@
 package domain.factory;
 
+import java.util.Date;
+
 import domain.AWeather;
 import domain.Weather;
 import domain.WeatherOWM;
@@ -21,6 +23,8 @@ public class WeatherFactory extends BaseWeatherFactory {
 			weather = new Weather();
 		}
 
+		// Set when the instance was updated for determining cache deletion
+		weather.setUpdated_at(new Date());
 		// Initialize by city_name
 		weather.GetTemperatureByCity(city_name);
 

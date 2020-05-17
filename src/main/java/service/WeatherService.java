@@ -3,6 +3,7 @@ package service;
 import java.io.IOException;
 
 import org.json.JSONException;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import domain.AWeather;
@@ -13,9 +14,12 @@ import domain.factory.WeatherFactory;
 public class WeatherService {
 	private BaseWeatherFactory weatherFactory = new WeatherFactory();
 
+	@Cacheable(value="weather", key="#city_name")
 	public AWeather getWeatherByCity(String city_name) throws JSONException, IOException {
-		AWeather weather = weatherFactory.createWeather("owm", city_name);
 
-		return weather;
+		// Print line to console when cache is not used
+		System.out.println("CACHE MISS for city " + city_name );
+
+		return weatherFactory.createWeather("owm", city_name);
 	}
 }
